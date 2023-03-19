@@ -1,91 +1,92 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import React from "react";
+import { Grid, Row, Col } from "react-flexbox-grid";
+import Card from "./components/card.js";
 
-const inter = Inter({ subsets: ['latin'] })
+//data contents
+class CardContent {
+  constructor(id, title, description) {
+    this.id = id;
+    this.title = title;
+    this.description = description;
+  }
+}
+let demoTitle = "Demo Title";
+let demoDescription =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus eros nunc, eget rhoncus lorem sodales sed. Nullam volutpat lobortis leo, in tincidunt velit. Vestibulum vel malesuada justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus eros nunc, eget rhoncus lorem sodales sed. Nullam volutpat lobortis leo, in tincidunt velit. Vestibulum vel malesuada justo. ";
+const cardContents = [
+  new CardContent(1, demoTitle, demoDescription),
+  new CardContent(2, demoTitle, demoDescription),
+  new CardContent(3, demoTitle, demoDescription),
+];
 
-export default function Home() {
+//styles
+const styleMainGrid = {
+  backgroundColor: "#D27685",
+  minHeight: "100vh",
+  width: "100%",
+  margin: "0",
+  padding: "0",
+};
+const styleColumn = ({color}={color:"#fff"}) => {
+  return {
+      maxWidth: "300px",
+      backgroundColor: color,
+      margin: "5px",
+      minHeight: "80vh",
+  };
+};
+
+
+//rendered app
+export default function App() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <Grid style={styleMainGrid}>
+      <Col xs={12}>
+        <Row center="xs" xs={12}>
+          <Col
+            xs={12}
+            sm={12}
+            md={3}
+            style={styleColumn({color:"#ABC270"})}
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+            {cardContents.map((item) => (
+              <Card
+                key={item.id}
+                title={item.title}
+                description={item.description}
+              />
+            ))}
+          </Col>
+          <Col
+            xs={12}
+            sm={12}
+            md={3}
+            style={styleColumn({color:"#898121"})}
+          >
+            {cardContents.map((item) => (
+              <Card
+                key={item.id}
+                title={item.title}
+                description={item.description}
+              />
+            ))}
+          </Col>
+          <Col
+            xs={12}
+            sm={12}
+            md={3}
+            style={styleColumn({color:"#4C4B16"})}
+          >
+            {cardContents.map((item) => (
+              <Card
+                key={item.id}
+                title={item.title}
+                description={item.description}
+              />
+            ))}
+          </Col>
+        </Row>
+      </Col>
+    </Grid>
+  );
 }
