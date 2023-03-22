@@ -24,7 +24,7 @@ const styleCardHeader = ({ isExpanded } = { isExpanded: false }) => {
     borderRadius: isExpanded ? "5px 5px 0 0" : "5px",
   };
 };
-const styleCardFooter = ({ isExpanded } = { isExpanded: false }) => {
+const styleCardBody = ({ isExpanded } = { isExpanded: false }) => {
   return {
     height: isExpanded ? "200px" : "0",
     transition: "height 0.3s ease",
@@ -45,18 +45,24 @@ function Card(props) {
     setExpanded(false);
   };
   return (
-    <Grid onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <Grid>
       <Col xs={12} style={styleMainGrid}>
-        <Col xs={12} style={styleCardHeader({ isExpanded: expanded })}>
+        <Col
+          xs={12}
+          style={styleCardHeader({ isExpanded: expanded })}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           <Row center="xs">{props.title}</Row>
         </Col>
         <Col
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           className="scrollable-container"
-          center="xs"
           xs={12}
-          style={styleCardFooter({ isExpanded: expanded })}
+          style={styleCardBody({ isExpanded: expanded })}
         >
-          <Row center="xs">{props.description}</Row>
+          <Row start="xs">{props.description}</Row>
         </Col>
       </Col>
     </Grid>

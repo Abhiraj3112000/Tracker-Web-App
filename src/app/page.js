@@ -12,7 +12,7 @@ class CardContent {
 }
 let demoTitle = "Demo Title";
 let demoDescription =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus eros nunc, eget rhoncus lorem sodales sed. Nullam volutpat lobortis leo, in tincidunt velit. Vestibulum vel malesuada justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus eros nunc, eget rhoncus lorem sodales sed. Nullam volutpat lobortis leo, in tincidunt velit. Vestibulum vel malesuada justo. ";
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ipsum dolor sit amet, consectetur adipiscing elit.  ipsum dolor sit amet, consectetur adipiscing elit. ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus eros nunc, eget rhoncus lorem sodales sed. Nullam volutpat lobortis leo, in tincidunt velit. Vestibulum vel malesuada justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus eros nunc, eget rhoncus lorem sodales sed. Nullam volutpat lobortis leo, in tincidunt velit. Vestibulum vel malesuada justo. ";
 const cardContents = [
   new CardContent(1, demoTitle, demoDescription),
   new CardContent(2, demoTitle, demoDescription),
